@@ -2,6 +2,9 @@
 // Hari Electrical Shop
 // script.js - Part 1
 // =============================
+function toggleMenu() {
+    document.getElementById("sideMenu").classList.toggle("show");
+}
 
 // Shopping Cart Counter
 let cartCount = 0;
