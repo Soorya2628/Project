@@ -454,7 +454,7 @@ section{
     display:flex;
     flex-wrap:wrap;
     justify-content:space-between;
-    padding:30px;
+    padding:100px;
     gap:20px;
 }
 
@@ -474,8 +474,8 @@ section{
 }
 
 .cart-item img{
-    width:120px;
-    height:120px;
+    width:150px;
+    height:160px;
     object-fit:cover;
     margin-right:20px;
 }
