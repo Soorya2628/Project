@@ -382,16 +382,18 @@ section{
 
 .product-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
     gap:15px;
     width:100%;
+    padding:20px;
 }
 
 .product,
 .product-card,
 .cart-card{
-    width:250px;
+    width:100%;
     max-width:100%;
+    margin:0;
     display:flex;
     flex-direction:column;
     flex-wrap:wrap;
@@ -400,15 +402,19 @@ section{
     background:white;
     border-radius:8px;
     box-shadow:0 0 10px gray;
+   align-items:center;
+   text-align:center;
 }
 
 .product img,
 .product-card img,
 .cart-card img{
     width:100%;
-    height:auto;
+    height:150px;
     object-fit:cover;
     border-radius:8px;
+    display:block;
+   margin:0 auto;
 }
 
 .price{
@@ -580,7 +586,7 @@ footer p{
    Mobile Responsive
 =========================== */
 
-@media(max-width:600px){
+@media(max-width:360px){
 
     nav{
         flex-direction:column;
