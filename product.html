@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electrical Products</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5;
+  }
+  header {
+    background: linear-gradient(90deg, #e0521f, #c0392b);
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 { margin: 0; font-size: 26px; }
+  header a {
+    color: white;
+    text-decoration: none;
+    background: rgba(255,255,255,0.15);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+  }
+  .product-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 220px;
+    padding: 15px;
+    text-align: center;
+  }
+  .product-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  .product-card h3 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+  }
+  .product-card p {
+    color: #444;
+    font-weight: bold;
+    margin: 0 0 10px;
+  }
+  .product-card button {
+    background: #e0521f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+  }
+  .product-card button:hover {
+    background: #c0392b;
+  }
+  body{
+    background:#F5F5DC;
+    font-family:Arial,sans-serif;
+}
+
+.banner{
+    background:#A0522D;
+    color:#fff;
+    padding:15px;
+    text-align:center;
+    font-size:30px;
+    font-weight:bold;
+    margin:40px 0 20px;
+    border-radius:10px;
+}
+
+.product-card{
+    background:#fff;
+    border-radius:15px;
+    padding:10px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+}
+
+.product-card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.product-name{
+    font-size:22px;
+    font-weight:bold;
+    margin-top:15px;
+    color:#A0522D;
+}
+
+.price{
+    font-size:20px;
+    color:#E35336;
+    font-weight:bold;
+}
+
+.buy-btn{
+    background:#E35336;
+    color:#fff;
+    border:none;
+    padding:10px 25px;
+    border-radius:8px;
+}
+
+.buy-btn:hover{
+    background:#A0522D;
+}
+
+</style>
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Hari Electricals</h1>
+  <a href="cart.html">🛒 Go to Cart</a>
+</header>
+
+<div class="products" id="product-list"></div>
+
+<script>
+  const products = [
+{name: "Floor light", price:12000, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7DnlMLzGtPGR5hWaIbncPuvUULcaYYMG9s80GISqaWQ&s=10"},
+{name:"Modern floor light",price:18000,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbTntow8sZleDy4lVfplmiGECovy8Z2rANql52ydVK7Q&s=10"},
+{name:"Modular Fan",price:6000,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqojNsXYe-Z7aCSnFALyIIU3IFCVH9YIboj4xq2UTCzQ&s=10"},
+{name:"Table model fan",price:4500,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzbpnFIUfRr8IFIK5wxCVVyEIMvhDBkP3xGijMIcEYfQ&s=10"},
+{name:"Modular Fan",price:500 ,image:"https://lw-cdn.com/images/0459DA252240/k_1454207e45a336af024560808579ebea;w_1600;h_1600;q_100/1527247.jpg"},
+{name:"Power Bulb",price:680 ,image:"https://img.magnific.com/free-photo/suspended-pendant-light-fixtures-as-design-element_157027-4188.jpg?semt=ais_hybrid&w=740&q=80"},
+{name:"Switches",price:800 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD35SEhlBpN3PMRef2-l8oB-uG6nUm-dtuFULOZxi35Q&s=10"},
+{name:"6A power socket",price:500 ,image:"https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/ExtraLarge/6a-polycarbonate-electrical-sw-20260129121354045.webp"},
+{name:"Multi Socket",price:500 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT72K7mKmGMswW-ut67_WRBAkl1jVZlPpxz5-lql-QW-A&s=10"},
+{name:"Modern socket",price:348 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQinUy0ZN15RILLPgQDF-S64lhEVInxNoxyza43Hmh_Q&s=10"},
+{name:"Electrical Mini Kit",price:1000 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0VvMMRV1UfT4wDtTl9q4_5eF-h6iTVctpLK28J_sT2g&s=10"},
+{name:"Modern Mini Kit",price:1900 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlhCE4rm4SnH6c8EITL5StXoeMwZOAFtVAmDuhE-BZw&s=10"},
+{name:"Regulator",price:150 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc2SCrIy1q2kpg-v-AzjhFwDI2ntW9BWSjhVXkQzTPgw&s=10"},
+{name:"Power Regulator",price:190 ,image:"https://tiimg.tistatic.com/fp/1/007/867/consistent-pressure-light-weight-less-power-consumption-white-electric-fan-regulator--981.jpg"},
+{name:"Water heater",price:7000 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5VcDpeJj0HHBVxJ0IiszzNHNGCZ6KTaT8qx963Eh9ig&s=10"},
+{name:"Multi Special heater",price:8000,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqUCMBBaoK19JgQGo359_KfnSiAfr1rWmHe-eC1wsubA&s=10"},
+{name:" Electrical Tapes",price:50 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP8ySXuh6zyhfhRzypr8R1aw-ZYWPSvdd3E97LvrOPJA&s=10"},
+{name:"Color Tapes",price: 70,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu7x_JR96y-zgo8EQ59l129cKuAr-wCuyCKkT71FItwA&s=10"},
+{name:"Screw Driver",price:100 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH9-r63QzVjSFpyTRs358ENFaBtDsom7c7TZT850SYtg&s=10"},
+{name:"G Screw Driver",price:150 ,image:"https://www.linkcart.in/cdn/shop/files/HTSDKIT05_1727687444.jpg?v=1733827654"},
+{name:"Stripper",price: 300 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwlHFSsiXC8aT7AUebl-c3dhAwG9GQ3c8crlhJ_Xallw&s=10"},
+{name:"Modern stripper",price:320 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMna5UPcOHkvTNMhCLhFK8iquRvx7BqEI0JZFlkGKkyA&s=10"},
+{name:"Cable Clip",price:10 ,image:"https://5.imimg.com/data5/WN/AO/AX/SELLER-4239230/cable-clip-500x500.jpg"},
+{name:"Modern Cable Clip",price: 20,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5iRJU5xcfLopYZ_uEzFsbbkzWAbdYm305vH5IQSVWPg&s=10"},
+{name:"Trunking Bends",price:400 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3FZi89zBWl_rUgzg6aP7WRyXoMUOJdAYhZpyr8dnrhg&s=10"},
+{name:"Plastic bends",price:200 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJqBXftDfgcz8uwgJIjWIXjqZpMSXdOFjKpaRUd-zWRw&s=10"},
+{name:"Tees coupler",price:70 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPQd2fRqNPNi18vY8YJbhkiovo9SQqqKeUDhA4bgJ_8Q&s=10"},
+{name:"Modern Tees Coupler",price:80 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz_ojm3o70hs6W4FpDqdd4UxH46qTd4RfHV5iPRUSwNw&s=10"},
+{name:"Concluits",price: 500,image:"https://m.media-amazon.com/images/I/81hLMXE20CL._AC_UF1000,1000_QL80_.jpg"},
+{name:"Modern Conculits",price:600 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Z4bWclWl7mQ-QooTVotzhzqeSYuAtgPrS15Srb8DSA&s=10"},
+{name:"Downlight Panel",price:300 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5F_yQ29vLXeNIbv2lnjlzUb3G-Rml3lyNyrvrFjEdHw&s=10"},
+{name:"Power Panel",price:250 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTijvs67s_vqGeH91k26nDpEBg2-e6n3urffERM4EwBpA&s=10"},
+{name:"Plates",price:20 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjRixmZ0nj_mAQb_GHJKPBoheno1eaSvdVyxKlSaXYWg&s=10"},
+{name:"Power Plates",price:50 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvilvhHTDRd5EIqx0pNxgqAYXXO91c9Qg98TpQRjjBGA&s=10"},
+{name:"Circle plates",price:30 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS98SZepj7CyrWborVbbmu6UQ-d8KV1YoDPZUjQouhU0g&s=10"},
+{name:"Circle Plates2",price:20 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRspo0vQmu-5VGTCxv1S28SV6KUk8D5jiaoVviwh-ICrQ&s=10"},
+{name:"2 pin Socket",price:50 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIT_IkXfmYbbYmBF5fqtJs4qO0K6ts5RTz8pqRPIAegw&s"},
+{name:"2pin Sockets",price:60 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcuy-BfhXU2Oe4ihCkVgDvtOElkx_9BbV3sN_3VBG3rw&s=10"},
+{name:"3 pin Socket",price:150 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBgE6OLwOlCtQfTXieevzPsA6xFpH4gmdRAfFAICWTcg&s=10"},
+{name:"Power 3 Pin",price:170 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt8gV9EwaRZSovEVh5Co2QVfn9E8W56DN-vkA6sLnvBQ&s=10"},
+{name:"Batten holder",price:60 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMnENQaRa62b_fRueqwK2Dva-wUTuXQjuphZpWos61xA&s=10"},
+{name:"Holder",price:50 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQDLx589Oa2QdLXbNR6qSJxcIAlkpHNlgMx0VRAB2iDw&s=10"},
+{name:"Breakers",price:150 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1HviFfQ8Api_qr2VM63LZg-PxFZKJGABHeumkBwuRfg&s=10"},
+{name:"Power Breakers",price:200 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8TGBfg5ZgidkI2bTTn-EHAjBY62WEcgudCFiKVnFVrA&s=10"},
+{name:"Enclouser",price:500 ,image:"https://image.made-in-china.com/202f0j00LeQkiJfaAscd/Customized-Outdoor-Stainless-Steel-Electric-Enclosure-Metal-Box-for-Power-Supply.webp"},
+{name:"Steel Enclouser",price:600 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_0Sw9N4LGiDpHFlZmGVPd_lOnTutFVxRtCzMt2nHOqA6CP-NExfj2evTf&s=10"},
+{name:"Dimmer",price:175 ,image:"https://webimages.imagebank.abb.com/public/default/product/9AAC407663/preview"},
+{name:"Modern dimmer",price:70 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIwY5hZZJrazQhRgGMo3Qiwwtq_tu7Zw3zn2SCKNa90w&s=10"},
+{name:"Plastic Wire",price:350 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-WFNW4s-zJpKbIthzhRoDhV4-FYAtBVGY_LUM7IlTxA&s=10"},
+{name:" Plastic Copper wire",price:200 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_HCgc-jz-TIM0o6a2Stc1e482qJDqyltBAn4OqAUDHA&s"},
+{name:"Drilling Machine",price:12580,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi0bsgp5xEpc0CU8EQ9d4TAD0612CYykl-XDkU-keO6w&s"},
+{name:"Drill set",price:11000 ,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShSIGAxIRLQTYSffTv7ZLPhKKwU4CotWtCGhE9Qmpa3w&s=10"}
+
+];
+
+const listEl = document.getElementById('product-list');
+  products.forEach((product, index) => {
+    listEl.innerHTML += `
+      <div class="product-card">
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>₹${product.price}</p>
+        <button onclick="addToCart(${index})">Add to Cart</button>
+      </div>
+    `;
+  });
+
+  function addToCart(index) {
+    const product = products[index];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const existing = cart.find(item => item.name === product.name);
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      cart.push({ name: product.name, price: product.price, image: product.image, qty: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(product.name + " added to cart!");
+  }
+</script>
+
+</body>
+</html>
