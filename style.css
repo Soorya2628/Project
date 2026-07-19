@@ -498,7 +498,7 @@ section{
 
 .product-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
     gap:15px;
 }
 
@@ -666,8 +666,8 @@ footer p{
     max-height: 150px;
 }
 .product-grid{
-    grid-template-columns: repeat(auto-fit,minimax(100px,1fr));
-    gap:15px;
+    grid-template-columns: repeat(auto-fit,minimax(140px,1fr));
+    gap:12px;
 }
 
 nav{
